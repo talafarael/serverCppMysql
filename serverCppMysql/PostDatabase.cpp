@@ -1,12 +1,12 @@
 #include "PostDatabase.h"
 #include "User.h"
+#include "IDatabaseConnection.h"
 
-
-PostDatabase::PostDatabase(User& user) : user(user) {};
+PostDatabase::PostDatabase(IDatabaseConnection& database) : database(database){};
 
 bool PostDatabase::createPost(const std::string& title, const std::string& text, const int id) {
     try{     std::cout << "suka";
-    sql::Connection* con = user.getConnection();
+    sql::Connection* con = database.startConnection();
     if (!con) {
         std::cerr << "Failed to get database connection." << std::endl;
        return true;

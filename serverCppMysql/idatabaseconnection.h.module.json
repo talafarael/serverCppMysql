@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": ".\\IDatabaseConnection.h.obj",
+            "outputs": [
+                "C:\\Users\\faraeler\\Documents\\GitHub\\serverInCpp\\serverCppMysql\\serverCppMysql\\vc143.pdb",
+                ".\\",
+                "C:\\Users\\faraeler\\Documents\\GitHub\\serverInCpp\\serverCppMysql\\serverCppMysql\\IDatabaseConnection.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "IDatabaseConnection.h",
+                    "source-path": "c:\\users\\faraeler\\documents\\github\\serverincpp\\servercppmysql\\servercppmysql\\idatabaseconnection.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

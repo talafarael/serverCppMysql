@@ -42,6 +42,12 @@
     <ClCompile Include="FindUser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DatabaseConnection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IDatabaseConnection.h">
+      <Filter>Header</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">
@@ -84,6 +90,9 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="IFindUserh.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="DatabaseConnection.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>

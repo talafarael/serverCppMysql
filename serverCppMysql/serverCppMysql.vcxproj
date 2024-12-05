@@ -141,8 +141,10 @@
   <ItemGroup>
     <ClCompile Include="AuthUser.cpp" />
     <ClCompile Include="CreatePost.cpp" />
+    <ClCompile Include="DatabaseConnection.cpp" />
     <ClCompile Include="FindUser.cpp" />
     <ClCompile Include="Header.cpp" />
+    <ClCompile Include="IDatabaseConnection.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PasswordManager.cpp" />
     <ClCompile Include="PostDatabase.cpp" />
@@ -152,6 +154,7 @@
   <ItemGroup>
     <ClInclude Include="AuthUser.h" />
     <ClInclude Include="CreatePost.h" />
+    <ClInclude Include="DatabaseConnection.h" />
     <ClInclude Include="FindUser.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="httplib.h" />

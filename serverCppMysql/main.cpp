@@ -12,6 +12,7 @@
 #include "AuthUser.h"
 #include <cppconn/driver.h>
 #include <cppconn/exception.h>
+#include "DatabaseConnection.h"
 
 #include <cppconn/prepared_statement.h>
 #include "PasswordManager.h"
@@ -46,7 +47,8 @@ int main() {
         User existingUser(data["name"], data["password"]);
         Token token;
         PasswordManager password;
-        AuthUser authUser(existingUser, token,password);
+        DatabaseConnection database;
+        AuthUser authUser(existingUser, token,password,database);
         std::string jwt= authUser.Register();
         nlohmann::json j = { {"token", jwt}};
           
@@ -67,7 +69,8 @@ int main() {
         User existingUser(data["name"], data["password"]);
         Token token;
         PasswordManager password;
-        AuthUser authUser(existingUser, token, password);
+        DatabaseConnection database;
+        AuthUser authUser(existingUser, token, password,database);
         std::string jwt = authUser.Login();
         nlohmann::json j = { {"token", jwt} };
         std::cout << j;
@@ -82,7 +85,8 @@ int main() {
         User existingUser("", "");
         Token token;
         PasswordManager password;
-        PostDatabase postDatabase(existingUser);
+        DatabaseConnection database;
+        PostDatabase postDatabase(database);
         CreatePost createPost(existingUser,token,password,postDatabase);
         if (data["text"].is_null() && data["title"].is_null()&& data["token"].is_null()) {
             res.status = 400;

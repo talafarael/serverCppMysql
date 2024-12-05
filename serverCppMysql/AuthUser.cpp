@@ -10,15 +10,15 @@
 #include <iomanip>
 #include <sstream>
 #include "IPasswordManager.h"
-
+#include "IToken.h"
 #include "qtbcrypt.h"
 #include <cstdlib>
 #include <cerrno>
 #include <cstring>
 #include <sodium.h>
  #include <string>
-#include "IToken.h"
-AuthUser::AuthUser(User& user,IToken& token, IPasswordManager& password) : user(user),token(token), password(password) {}
+
+AuthUser::AuthUser(User& user, IToken& token, IPasswordManager& password, IDatabaseConnection& database) : user(user), token(token), password(password), database(database) {};
 
 
 std::string AuthUser::Register() {
@@ -26,7 +26,7 @@ std::string AuthUser::Register() {
 
         std::string password = "top_secret";
 
-        sql::Connection* con = user.getConnection();
+        sql::Connection* con = database.startConnection();
         if (!con) {
             std::cerr << "Failed to get database connection." << std::endl;
             return "error";
@@ -69,7 +69,7 @@ std::string AuthUser::Register() {
 std::string AuthUser::Login() {
     std::string secret = "top_secret";
 
-    sql::Connection* con = user.getConnection();
+    sql::Connection* con = database.startConnection();
     //std::string name = this->token
     if (!con) {
         std::cerr << "Failed to get database connection." << std::endl;

@@ -1,7 +1,9 @@
 C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\AuthUser.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\AuthUser.obj
 C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\CreatePost.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\CreatePost.obj
+C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\DatabaseConnection.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\DatabaseConnection.obj
 C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\FindUser.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\FindUser.obj
 C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\Header.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\Header.obj
+C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\IDatabaseConnection.h;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\IDatabaseConnection.h.obj
 C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\main.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\main.obj
 C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\PasswordManager.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\PasswordManager.obj
 C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\PostDatabase.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\PostDatabase.obj
