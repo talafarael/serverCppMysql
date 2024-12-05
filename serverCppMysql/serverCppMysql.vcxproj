@@ -74,6 +74,9 @@
     <LibraryPath>$(LibraryPath)</LibraryPath>
     <IntDir>.</IntDir>
   </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <VcpkgUseStatic>false</VcpkgUseStatic>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -120,32 +123,50 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>STATIC_CONCPP;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>STATIC_CONCPP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>F:\lobary\mysql-connector-c++-9.1.0-winx64\include\jdbc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\lobary\mysql9.1.0-winx64\include\jdbc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>F:\lobary\mysql-connector-c++-9.1.0-winx64\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>mysqlcppconn-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\lobary\mysql9.1.0-winx64\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <Manifest />
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AuthUser.cpp" />
+    <ClCompile Include="CreatePost.cpp" />
+    <ClCompile Include="FindUser.cpp" />
     <ClCompile Include="Header.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PasswordManager.cpp" />
+    <ClCompile Include="PostDatabase.cpp" />
+    <ClCompile Include="Token.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AuthUser.h" />
+    <ClInclude Include="CreatePost.h" />
+    <ClInclude Include="FindUser.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="httplib.h" />
-    <ClInclude Include="SHA256.h" />
+    <ClInclude Include="IFindUserh.h" />
+    <ClInclude Include="IPasswordManager.h" />
+    <ClInclude Include="IPostDatabase.h" />
+    <ClInclude Include="IToken.h" />
+    <ClInclude Include="PasswordManager.h" />
+    <ClInclude Include="Post.h" />
+    <ClInclude Include="PostDatabase.h" />
+    <ClInclude Include="Token.h" />
     <ClInclude Include="User.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="serverCppMysql.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

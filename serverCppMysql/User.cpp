@@ -1,9 +1,8 @@
 #include "User.h"
-#include <cppconn/driver.h>
-#include <cppconn/exception.h>
-#include <cppconn/prepared_statement.h>
+
 User::User(std::string name, std::string password) : name(name), password(password) {}
 sql::Connection* User::getConnection() {
+
     if (!con) {  
         try {
             sql::Driver* driver = get_driver_instance();

@@ -27,6 +27,21 @@
     <ClCompile Include="AuthUser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Token.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PasswordManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PostDatabase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreatePost.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FindUser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">
@@ -41,8 +56,40 @@
     <ClInclude Include="AuthUser.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="SHA256.h">
+    <ClInclude Include="Token.h">
       <Filter>Header</Filter>
     </ClInclude>
+    <ClInclude Include="IToken.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PasswordManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="IPasswordManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PostDatabase.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Post.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="IPostDatabase.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CreatePost.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="FindUser.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="IFindUserh.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="serverCppMysql.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

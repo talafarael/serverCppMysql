@@ -1,89 +1,53 @@
-//====- SHA256.cpp - SHA256 implementation ---*- C++ -* ======//
-//
-// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
-// See https://llvm.org/LICENSE.txt for license information.
-// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
-//
-//===----------------------------------------------------------------------===//
-/*
- *  The SHA-256 Secure Hash Standard was published by NIST in 2002.
- *
- *  http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf
- *
- *   The implementation is based on nacl's sha256 implementation [0] and LLVM's
- *  pre-exsiting SHA1 code [1].
- *
- *   [0] https://hyperelliptic.org/nacl/nacl-20110221.tar.bz2 (public domain
- *       code)
- *   [1] llvm/lib/Support/SHA1.{h,cpp}
- */
- //===----------------------------------------------------------------------===//
+#ifndef SHA256_H
+#define SHA256_H
+#include <string>
 
-#ifndef LLVM_SUPPORT_SHA256_H
-#define LLVM_SUPPORT_SHA256_H
+class SHA256
+{
+protected:
+    typedef unsigned char uint8;
+    typedef unsigned int uint32;
+    typedef unsigned long long uint64;
 
-#include <array>
-#include <cstdint>
+    const static uint32 sha256_k[];
+    static const unsigned int SHA224_256_BLOCK_SIZE = (512 / 8);
+public:
+    void init();
+    void update(const unsigned char* message, unsigned int len);
+    void final(unsigned char* digest);
+    static const unsigned int DIGEST_SIZE = (256 / 8);
 
-namespace llvm {
+protected:
+    void transform(const unsigned char* message, unsigned int block_nb);
+    unsigned int m_tot_len;
+    unsigned int m_len;
+    unsigned char m_block[2 * SHA224_256_BLOCK_SIZE];
+    uint32 m_h[8];
+};
 
-    template <typename T> class ArrayRef;
-    class StringRef;
+std::string sha256(std::string input);
 
-    class SHA256 {
-    public:
-        explicit SHA256() { init(); }
-
-        /// Reinitialize the internal state
-        void init();
-
-        /// Digest more data.
-        void update(ArrayRef<uint8_t> Data);
-
-        /// Digest more data.
-        void update(StringRef Str);
-
-        /// Return the current raw 256-bits SHA256 for the digested
-        /// data since the last call to init(). This call will add data to the
-        /// internal state and as such is not suited for getting an intermediate
-        /// result (see result()).
-        std::array<uint8_t, 32> final();
-
-        /// Return the current raw 256-bits SHA256 for the digested
-        /// data since the last call to init(). This is suitable for getting the
-        /// SHA256 at any time without invalidating the internal state so that more
-        /// calls can be made into update.
-        std::array<uint8_t, 32> result();
-
-        /// Returns a raw 256-bit SHA256 hash for the given data.
-        static std::array<uint8_t, 32> hash(ArrayRef<uint8_t> Data);
-
-    private:
-        /// Define some constants.
-        /// "static constexpr" would be cleaner but MSVC does not support it yet.
-        enum { BLOCK_LENGTH = 64 };
-        enum { HASH_LENGTH = 32 };
-
-        // Internal State
-        struct {
-            union {
-                uint8_t C[BLOCK_LENGTH];
-                uint32_t L[BLOCK_LENGTH / 4];
-            } Buffer;
-            uint32_t State[HASH_LENGTH / 4];
-            uint32_t ByteCount;
-            uint8_t BufferOffset;
-        } InternalState;
-
-        // Helper
-        void writebyte(uint8_t data);
-        void hashBlock();
-        void addUncounted(uint8_t data);
-        void pad();
-
-        void final(std::array<uint32_t, HASH_LENGTH / 4>& HashResult);
-    };
-
-} // namespace llvm
-
-#endif // LLVM_SUPPORT_SHA256_H
+#define SHA2_SHFR(x, n)    (x >> n)
+#define SHA2_ROTR(x, n)   ((x >> n) | (x << ((sizeof(x) << 3) - n)))
+#define SHA2_ROTL(x, n)   ((x << n) | (x >> ((sizeof(x) << 3) - n)))
+#define SHA2_CH(x, y, z)  ((x & y) ^ (~x & z))
+#define SHA2_MAJ(x, y, z) ((x & y) ^ (x & z) ^ (y & z))
+#define SHA256_F1(x) (SHA2_ROTR(x,  2) ^ SHA2_ROTR(x, 13) ^ SHA2_ROTR(x, 22))
+#define SHA256_F2(x) (SHA2_ROTR(x,  6) ^ SHA2_ROTR(x, 11) ^ SHA2_ROTR(x, 25))
+#define SHA256_F3(x) (SHA2_ROTR(x,  7) ^ SHA2_ROTR(x, 18) ^ SHA2_SHFR(x,  3))
+#define SHA256_F4(x) (SHA2_ROTR(x, 17) ^ SHA2_ROTR(x, 19) ^ SHA2_SHFR(x, 10))
+#define SHA2_UNPACK32(x, str)                 \
+{                                             \
+    *((str) + 3) = (uint8) ((x)      );       \
+    *((str) + 2) = (uint8) ((x) >>  8);       \
+    *((str) + 1) = (uint8) ((x) >> 16);       \
+    *((str) + 0) = (uint8) ((x) >> 24);       \
+}
+#define SHA2_PACK32(str, x)                   \
+{                                             \
+    *(x) =   ((uint32) *((str) + 3)      )    \
+           | ((uint32) *((str) + 2) <<  8)    \
+           | ((uint32) *((str) + 1) << 16)    \
+           | ((uint32) *((str) + 0) << 24);   \
+}
+#endif

@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\artem\source\repos\serverCppMysql\x64\Release\serverCppMysql.exe</FullPath>
+      <FullPath>C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\x64\Release\serverCppMysql.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

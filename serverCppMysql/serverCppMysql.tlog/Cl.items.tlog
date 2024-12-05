@@ -1,4 +1,9 @@
-C:\Users\artem\source\repos\serverCppMysql\serverCppMysql\AuthUser.cpp;C:\Users\artem\source\repos\serverCppMysql\serverCppMysql\AuthUser.obj
-C:\Users\artem\source\repos\serverCppMysql\serverCppMysql\Header.cpp;C:\Users\artem\source\repos\serverCppMysql\serverCppMysql\Header.obj
-C:\Users\artem\source\repos\serverCppMysql\serverCppMysql\main.cpp;C:\Users\artem\source\repos\serverCppMysql\serverCppMysql\main.obj
-C:\Users\artem\source\repos\serverCppMysql\serverCppMysql\User.cpp;C:\Users\artem\source\repos\serverCppMysql\serverCppMysql\User.obj
+C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\AuthUser.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\AuthUser.obj
+C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\CreatePost.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\CreatePost.obj
+C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\FindUser.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\FindUser.obj
+C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\Header.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\Header.obj
+C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\main.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\main.obj
+C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\PasswordManager.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\PasswordManager.obj
+C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\PostDatabase.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\PostDatabase.obj
+C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\Token.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\Token.obj
+C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\User.cpp;C:\Users\faraeler\Documents\GitHub\serverInCpp\serverCppMysql\serverCppMysql\User.obj
